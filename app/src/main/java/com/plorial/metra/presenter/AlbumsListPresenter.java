@@ -5,8 +5,6 @@ import com.plorial.metra.model.AlbumsModelImpl;
 import com.plorial.metra.model.pojo.Album;
 import com.plorial.metra.view.AlbumsView;
 
-import org.reactivestreams.Subscriber;
-
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -45,5 +43,9 @@ public class AlbumsListPresenter extends BasePresenter {
 
     public void onAlbumClick(Album album){
 
+    }
+
+    public void addAlbum(String name){
+        model.addAlbum(name);
     }
 }

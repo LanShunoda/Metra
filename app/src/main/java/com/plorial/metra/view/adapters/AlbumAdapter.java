@@ -39,7 +39,7 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
             TextView name = (TextView) view.findViewById(R.id.tvName);
             TextView date = (TextView) view.findViewById(R.id.tvDate);
             name.setText(album.getName());
-            date.setText(album.getDate());
+            date.setText("Last: " + album.getDate());
         }
         return view;
     }

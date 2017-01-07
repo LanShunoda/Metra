@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface AlbumsView extends View {
     void showAlbums(List<Album> albums);
+    void addAlbum(String name);
 }

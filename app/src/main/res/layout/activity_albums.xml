@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.plorial.metra.view.AlbumsActivity">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        ></include>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/list_view"/>
+        android:id="@+id/list_view"
+        android:layout_below="@+id/tool_bar" />
 </RelativeLayout>

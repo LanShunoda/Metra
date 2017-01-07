@@ -24,11 +24,12 @@ public class AlbumsModelImpl implements AlbumsModel {
 
     @Override
     public io.reactivex.Observable<List<Album>> getAlbums() {
-        return RxFirebaseDatabase.observeSingleValueEvent(databaseReference.child("albums"), DataSnapshotMapper.listOf(Album.class));
+        return RxFirebaseDatabase.observeValueEvent(databaseReference.child("albums"), DataSnapshotMapper.listOf(Album.class));
     }
 
     @Override
     public void addAlbum(String name) {
-        databaseReference.child("albums/" + name + "/date").setValue("Last: " + new Date().toString());
+        databaseReference.child("albums/" + name + "/date").setValue(new Date().toString());
+        databaseReference.child("albums/" + name + "/name").setValue(name);
     }
 }

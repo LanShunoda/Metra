@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "742494598660",
+    "firebase_url": "https://metra-16a9c.firebaseio.com",
+    "project_id": "metra-16a9c",
+    "storage_bucket": "metra-16a9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742494598660:android:ae79feaaea258a6a",
+        "android_client_info": {
+          "package_name": "com.plorial.metra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742494598660-012dciv4rb9aqmoolcojl7u4v46fvsni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plorial.metra",
+            "certificate_hash": "7978583AE0C0BC5B7FE7CCD94FF9163B6037679D"
+          }
+        },
+        {
+          "client_id": "742494598660-t76k3jbca4da2jfj4vd0osbgdjkimrgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvM9Jcrc5uMi97HKK-vZe364hXQlZVlos"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742494598660-t76k3jbca4da2jfj4vd0osbgdjkimrgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

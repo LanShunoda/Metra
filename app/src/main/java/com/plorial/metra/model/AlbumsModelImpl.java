@@ -9,6 +9,7 @@ import java.util.List;
 
 import durdinapps.rxfirebase2.DataSnapshotMapper;
 import durdinapps.rxfirebase2.RxFirebaseDatabase;
+import io.reactivex.Observable;
 
 /**
  * Created by plorial on 1/7/17.
@@ -19,11 +20,11 @@ public class AlbumsModelImpl implements AlbumsModel {
     private DatabaseReference databaseReference;
 
     public AlbumsModelImpl() {
-        this.databaseReference = databaseReference = FirebaseDatabase.getInstance().getReference();;
+        this.databaseReference = FirebaseDatabase.getInstance().getReference();;
     }
 
     @Override
-    public io.reactivex.Observable<List<Album>> getAlbums() {
+    public Observable<List<Album>> getAlbums() {
         return RxFirebaseDatabase.observeValueEvent(databaseReference.child("albums"), DataSnapshotMapper.listOf(Album.class));
     }
 

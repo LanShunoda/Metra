@@ -1,9 +1,13 @@
 package com.plorial.metra.presenter;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.plorial.metra.model.AlbumsModel;
 import com.plorial.metra.model.AlbumsModelImpl;
 import com.plorial.metra.model.pojo.Album;
 import com.plorial.metra.view.AlbumsView;
+import com.plorial.metra.view.PhotosActivity;
 
 import java.util.List;
 
@@ -42,7 +46,9 @@ public class AlbumsListPresenter extends BasePresenter {
     }
 
     public void onAlbumClick(Album album){
-
+        Intent intent = new Intent((Context) view, PhotosActivity.class);
+        intent.putExtra(PhotosActivity.TAG, album);
+        ((Context) view).startActivity(intent);
     }
 
     public void addAlbum(String name){

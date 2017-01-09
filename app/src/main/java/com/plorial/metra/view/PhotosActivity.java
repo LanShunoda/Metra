@@ -10,8 +10,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,12 +23,13 @@ import com.plorial.metra.presenter.PhotosPresenter;
 import com.plorial.metra.view.adapters.PhotosAdapter;
 
 import java.io.File;
+import java.util.HashMap;
 
 /**
  * Created by plorial on 1/8/17.
  */
 
-public class PhotosActivity extends AppCompatActivity implements PhotosView {
+public class PhotosActivity extends AppCompatActivity implements PhotosView, AdapterView.OnItemClickListener {
 
     public static final String TAG = PhotosActivity.class.getSimpleName();
     private static final int CHOOSE_PHOTO_REQUEST = 1;
@@ -49,6 +51,7 @@ public class PhotosActivity extends AppCompatActivity implements PhotosView {
         GridView gridView = (GridView) findViewById(R.id.grid_view_photos);
         initHeader();
         adapter = new PhotosAdapter(this, R.layout.photo_item, album.getPhotos());
+        gridView.setOnItemClickListener(this);
         gridView.setAdapter(adapter);
         presenter = new PhotosPresenter(this);
     }
@@ -57,7 +60,12 @@ public class PhotosActivity extends AppCompatActivity implements PhotosView {
         TextView tvOverall = (TextView) findViewById(R.id.tvOverall);
         TextView tvName = (TextView) findViewById(R.id.tvName);
         TextView tvDate = (TextView) findViewById(R.id.tvDate);
-        tvOverall.setText(getString(R.string.overall) + album.getPhotos().size());
+        if(album.getPhotos() == null) {
+            tvOverall.setText(getString(R.string.overall) + 0);
+            album.setPhotos(new HashMap<String, String>());
+        } else {
+            tvOverall.setText(getString(R.string.overall) + album.getPhotos().size());
+        }
         tvName.setText(getString(R.string.name) + album.getName());
         tvDate.setText(getString(R.string.date) + album.getDate());
     }
@@ -133,5 +141,13 @@ public class PhotosActivity extends AppCompatActivity implements PhotosView {
     @Override
     public void updatePhotos() {
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if(view.getId() == R.id.bDelete){
+            presenter.deletePhoto(adapter.getKey(position));
+            Log.d(TAG, "delete " + position);
+        }
     }
 }

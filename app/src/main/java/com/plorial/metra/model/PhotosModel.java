@@ -15,4 +15,5 @@ public interface PhotosModel {
     Observable<UploadTask.TaskSnapshot> uploadPhoto(Uri uri);
     void addPhotoToDatabase(String url, String name);
     Uri saveBitmapToFile(Bitmap bitmap, String dir);
+    void deletePhoto(String name);
 }

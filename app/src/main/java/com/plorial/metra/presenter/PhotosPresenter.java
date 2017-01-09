@@ -49,4 +49,10 @@ public class PhotosPresenter extends BasePresenter {
     public Uri saveBitmapToFile(Bitmap bitmap, String dir) {
         return model.saveBitmapToFile(bitmap, dir);
     }
+
+    public void deletePhoto(String name){
+        model.deletePhoto(name);
+        photosView.getAlbum().getPhotos().remove(name);
+        photosView.updatePhotos();
+    }
 }

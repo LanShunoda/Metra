@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,7 +31,7 @@ public class PhotosAdapter extends MapAdapter<String, String> {
     }
 
     @Override
-    protected View onGetView(int pos, String key, String value, View convertView, ViewGroup parent) {
+    protected View onGetView(final int pos, String key, String value, View convertView, final ViewGroup parent) {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -42,6 +44,15 @@ public class PhotosAdapter extends MapAdapter<String, String> {
         name.setText(key);
         DownloadImageTask imageTask = new DownloadImageTask(image, date, pb);
         imageTask.execute(value);
+        final Button delete = (Button) view.findViewById(R.id.bDelete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GridView) parent).performItemClick(v, pos, delete.getId());
+            }
+        });
+
         return view;
     }
+
 }

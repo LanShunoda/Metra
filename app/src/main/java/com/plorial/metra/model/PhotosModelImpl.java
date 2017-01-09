@@ -78,6 +78,13 @@ public class PhotosModelImpl implements PhotosModel {
         return Uri.fromFile(mediaFile);
     }
 
+    @Override
+    public void deletePhoto(String name) {
+        databaseReference.child("albums/" + albumName + "/photos/" + name).removeValue();
+        storageReference.child("albums/" + albumName + "/photos/" + name).delete();
+
+    }
+
     private static String getFileNameFromUri(Uri uri){
         File tempFile = new File(uri.getPath());
         return tempFile.getName();

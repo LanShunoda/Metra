@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.plorial.metra.model.pojo.Album;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class AlbumsModelImpl implements AlbumsModel {
 
     @Override
     public void addAlbum(String name) {
-        databaseReference.child("albums/" + name + "/date").setValue(new Date().toString());
+        databaseReference.child("albums/" + name + "/date").setValue(new SimpleDateFormat("dd.MM.yyyy").format(new Date()));
         databaseReference.child("albums/" + name + "/name").setValue(name);
     }
 }

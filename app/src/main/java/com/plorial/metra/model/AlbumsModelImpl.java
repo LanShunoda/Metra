@@ -20,7 +20,7 @@ public class AlbumsModelImpl implements AlbumsModel {
     private DatabaseReference databaseReference;
 
     public AlbumsModelImpl() {
-        this.databaseReference = FirebaseDatabase.getInstance().getReference();;
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override

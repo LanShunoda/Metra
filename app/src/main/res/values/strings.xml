@@ -6,4 +6,7 @@
     <string name="overall">"Overall: "</string>
     <string name="name">"Name: "</string>
     <string name="date">"Date: "</string>
+    <string name="add_photo">Add photo</string>
+    <string name="choose_a_photo">Choose a photo</string>
+    <string name="make_a_photo">Make a photo</string>
 </resources>

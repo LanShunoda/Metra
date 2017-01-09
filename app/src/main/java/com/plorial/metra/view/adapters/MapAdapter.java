@@ -51,5 +51,12 @@ public abstract class MapAdapter<K, V> extends BaseAdapter{
 
     protected abstract View onGetView(int pos, K key, V value, View convertView,
                                       ViewGroup parent);
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+        mKeys = new ArrayList<K>(mData.keySet());
+        Collections.sort(mKeys, Collections.reverseOrder());
+    }
 }
 

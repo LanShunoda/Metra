@@ -79,7 +79,6 @@ public class AlbumsActivity extends AppCompatActivity implements AlbumsView, Ada
             albumDialog.show(getFragmentManager(),TAG);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
